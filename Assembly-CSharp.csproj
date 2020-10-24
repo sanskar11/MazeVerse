@@ -38,9 +38,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\MazeLoader.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
-     <None Include="Assets\Scripts\maze 1.txt" />
-     <None Include="Assets\Scripts\maze.txt" />
-     <None Include="Assets\Scripts\mazeemp.txt" />
+     <None Include="Assets\maze 1.txt" />
+     <None Include="Assets\maze.txt" />
+     <None Include="Assets\mazeemp.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/home/sanskar/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
