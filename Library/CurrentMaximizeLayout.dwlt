@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 881, y: 492}
   m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 8238
+  controlID: 10262
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 8239
+  controlID: 10263
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 8212
+  controlID: 10264
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -312,9 +312,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 20.6, y: 4.248249, z: 12.280487}
+    m_Target: {x: 37.039803, y: 7.917737, z: 20.32171}
     speed: 2
-    m_Value: {x: 20.6, y: 4.248249, z: 12.280487}
+    m_Value: {x: 37.039803, y: 7.917737, z: 20.32171}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -360,9 +360,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.19584554, y: 0.42507592, z: -0.09473946, w: -0.87862796}
+    m_Target: {x: -0.12130532, y: -0.057440482, z: 0.0070387907, w: -0.99093205}
     speed: 2
-    m_Value: {x: -0.1958448, y: 0.4250743, z: -0.094739094, w: -0.8786246}
+    m_Value: {x: -0.1213047, y: -0.057440188, z: 0.007038755, w: -0.990927}
   m_Size:
     m_Target: 10
     speed: 2
@@ -575,9 +575,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 66440000
-    m_LastClickedInstanceID: 17510
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 72540000
+    m_LastClickedInstanceID: 21618
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -694,5 +694,5 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: 17510
-  m_LastVerticalScrollValue: 720
+  m_LastInspectedObjectInstanceID: 21618
+  m_LastVerticalScrollValue: 0
