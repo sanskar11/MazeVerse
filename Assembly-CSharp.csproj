@@ -36,7 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\ThirdPersonMovement.cs" />
+     <Compile Include="Assets\Scripts\MazeLoader.cs" />
+     <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
+     <None Include="Assets\Scripts\maze 1.txt" />
+     <None Include="Assets\Scripts\maze.txt" />
+     <None Include="Assets\Scripts\mazeemp.txt" />
     <Reference Include="UnityEngine">
         <HintPath>/home/sanskar/Unity/Hub/Editor/2019.4.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -565,6 +569,9 @@
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+        <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -583,17 +590,20 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+        <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Cinemachine">
-        <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    <Reference Include="Unity.TerrainTools">
+        <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Unity.TerrainTools.dll</HintPath>
     </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-        <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    <Reference Include="Unity.TerrainTools.Editor">
+        <HintPath>/home/sanskar/mygame/MazeVerse/Library/ScriptAssemblies/Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
