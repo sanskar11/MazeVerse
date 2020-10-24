@@ -12,8 +12,8 @@ public class MazeLoader : MonoBehaviour
     static int cols = 15;
     static float xOffset = 0;
     static float zOffset = -10;
-    static float yOffset = 2;
     static float height = 3;
+    static float yOffset = 0.5f+height/2;
     bool[, ,] mat = new bool[rows,cols,4];
     float BOXSIZE = 3f;
     public GameObject wall;
@@ -48,7 +48,7 @@ public class MazeLoader : MonoBehaviour
     public void SpawnObstacle(float x, float y, float z, int align){
         // GameObject obs = GameObject.CreatePrimitive(PrimitiveType.Cube);
         // obs.transform.localScale = new Vector3(3,height,0.1f);
-        GameObject obs = Instantiate(wall, transform.position, transform.rotation);
+        GameObject obs = Instantiate(wall, transform.position, Quaternion.Euler(0,0,0));
         if(align==1){
             obs.transform.rotation = Quaternion.Euler(0,90,0);
             obs.transform.position = new Vector3(x,y,z+BOXSIZE/2);

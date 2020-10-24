@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollectItem : MonoBehaviour
 {
     public bool keyCollected = false;
+
     void OnCollisionEnter(Collision collisionInfo)
     {
         if(collisionInfo.collider.tag == "Key"){

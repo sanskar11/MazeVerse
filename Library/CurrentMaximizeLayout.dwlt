@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 880, y: 492}
   m_MaxSize: {x: 16005, y: 14042}
   vertical: 0
-  controlID: 8164
+  controlID: 7612
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 604, y: 492}
   m_MaxSize: {x: 12004, y: 14042}
   vertical: 1
-  controlID: 8165
+  controlID: 7613
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 604, y: 221}
   m_MaxSize: {x: 12004, y: 4021}
   vertical: 0
-  controlID: 8166
+  controlID: 7614
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d6e4ffff
+      m_ExpandedIDs: 6cfbffff9e360000b4360000da360000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -312,9 +312,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 19.656008, y: 1.8038676, z: 13.704133}
+    m_Target: {x: 20.6, y: 1.5453696, z: 17.025599}
     speed: 2
-    m_Value: {x: 19.656008, y: 1.8038676, z: 13.704133}
+    m_Value: {x: 20.6, y: 1.5453696, z: 17.025599}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -360,13 +360,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.02739224, y: 0.33720034, z: 0.009816254, w: -0.9409878}
+    m_Target: {x: -0.1954947, y: 0.1846895, z: -0.037512656, w: -0.9624358}
     speed: 2
-    m_Value: {x: 0.02739212, y: 0.33719885, z: 0.009816211, w: -0.94098365}
+    m_Value: {x: -0.19549292, y: 0.18468784, z: -0.037512317, w: -0.9624271}
   m_Size:
-    m_Target: 0.089267015
+    m_Target: 5.4571247
     speed: 2
-    m_Value: 0.089267015
+    m_Value: 5.4571247
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -509,20 +509,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\trizo\Downloads\Documents\Sem5\Game Design\Project\MazeVerse
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 54410000
-    m_LastClickedID: 16724
-    m_ExpandedIDs: 000000005441000000ca9a3b
+    m_SelectedIDs: 60380000
+    m_LastClickedID: 14432
+    m_ExpandedIDs: 000000004e38000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -550,7 +550,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005441000000ca9a3b
+    m_ExpandedIDs: 000000004e38000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -575,9 +575,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 3432ffff
-    m_LastClickedInstanceID: -52684
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: c8360000
+    m_LastClickedInstanceID: 14024
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -694,5 +694,5 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -52684
-  m_LastVerticalScrollValue: 0
+  m_LastInspectedObjectInstanceID: 14024
+  m_LastVerticalScrollValue: 686
