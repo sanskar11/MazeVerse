@@ -22,23 +22,27 @@ public class CollectItem : MonoBehaviour
         if(collisionInfo.collider.tag == "Key"){
             keyCollected = true;
             Destroy(collisionInfo.gameObject);
-            Color temp = keyimg.color;
-            temp.a = 255;
+            Color temp = keyimg.color; //we need to assign to a variable and do it
+            temp.a = 1f;
             keyimg.color=temp;
-
-            hb.TakeDamage(50);
+            if(canReduceHealth)
+            {
+                hb.GainHealth(50);
+                canReduceHealth=false;
+            }
         }
         if(collisionInfo.collider.tag == "Door"){
-                Color tem = keyimg.color;
-                tem.a = 0.3f;
-                keyimg.color=tem;
             if(keyCollected)
             {
                 Destroy(collisionInfo.gameObject);
-                //Color temp = keyimg.color;
-                //temp.a = 50;
-                //keyimg.color=temp;
-                hb.TakeDamage(50);
+                Color temp = keyimg.color;
+                temp.a = 0.4f;
+                keyimg.color=temp;
+                if(canReduceHealth)
+                {
+                    hb.TakeDamage(50);
+                    canReduceHealth=false;
+                }
             }
             else
             {

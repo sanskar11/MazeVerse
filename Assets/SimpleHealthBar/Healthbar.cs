@@ -84,11 +84,7 @@ public class Healthbar : MonoBehaviour {
             // Each time the health is changed, update it visibly:
             UpdateHealth();
         }
-
-        if(health<highHealth)
-        {
-            ToggleRegeneration();
-        }
+        Debug.Log(health);
     }
 
     // Set the health bar to display the same health value as the health variable:
@@ -101,33 +97,29 @@ public class Healthbar : MonoBehaviour {
         }
         else if (healthPercentage <= highHealth && health > lowHealth)
         {
-            float lerpedColorValue = (float.Parse(healthPercentage.ToString()) - 25) / 41;
+            float lerpedColorValue = (float.Parse(health.ToString()) - 25) / 41;
             ChangeHealthbarColor(Color.Lerp(lowHealthColor, mediumHealthColor, lerpedColorValue));
         }
         else if (healthPercentage > highHealth && health <= maximumHealth)
         {
-            float lerpedColorValue = (float.Parse(healthPercentage.ToString()) - 67) / 33;
+            float lerpedColorValue = (float.Parse(health.ToString()) - 67) / 33;
             ChangeHealthbarColor(Color.Lerp(mediumHealthColor, highHealthColor, lerpedColorValue));
         }
-        if(health>highHealth)
-        {
-            ToggleRegeneration();
-        }
-
         healthbarDisplay.value = health;
     }
 
     public void GainHealth(float amount)
     {
         // Add 'amount' hitpoints, then update the characters health:
-        health += amount;
+        health += float.Parse(amount.ToString());
+        if(health>100)
+            health=maximumHealth;
         UpdateHealth();
     }
 
     public void TakeDamage(int amount)
     {
         // Remove 'amount' hitpoints, then update the characters health:
-        Debug.Log("Yayyyyyyy");
         health -= float.Parse(amount.ToString());
         UpdateHealth();
     }
@@ -146,14 +138,5 @@ public class Healthbar : MonoBehaviour {
     {
         health = value;
         UpdateHealth();
-    }
-    
-    //my
-    void OnCollisionEnter(Collision collisionInfo)
-    {
-        Debug.Log("yassss!!");
-        if(collisionInfo.collider.tag == "Door" || collisionInfo.collider.tag == "Key"){
-            TakeDamage(70);
-        }
     }
 }
