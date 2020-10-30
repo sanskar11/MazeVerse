@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\CollectItem.cs" />
      <Compile Include="Assets\Scripts\MazeLoader.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
+     <Compile Include="Assets\SimpleHealthBar\Healthbar.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\SimpleSampleCharacterControl.cs" />
@@ -55,6 +56,7 @@
      <None Include="Assets\SineVFX\TranslucentCrystals\Resources\Shaders\Crystal.shader" />
      <None Include="Assets\Models\Key\readME keys.txt" />
      <None Include="Assets\maze.txt" />
+     <None Include="Assets\SimpleHealthBar\documentation.txt" />
      <None Include="Assets\Supercyan Character Pack Free Sample\Shaders\SupercyanShaderLighting.cginc" />
      <None Include="Assets\mazeemp.txt" />
     <Reference Include="UnityEngine">
