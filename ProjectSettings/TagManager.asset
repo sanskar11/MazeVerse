@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Door
   - Key
+  - Invisibility Orb
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Glow
   - 
   - 
   - 

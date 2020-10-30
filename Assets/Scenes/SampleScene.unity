@@ -634,7 +634,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.1357124, y: -0.01774266, z: 0.002430781, w: 0.9905864}
+  m_LocalRotation: {x: 0.13571261, y: -0.017657282, z: 0.0024190838, w: 0.99058795}
   m_LocalPosition: {x: 0, y: 2.8649342, z: -4.876191}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -691,6 +691,8 @@ MonoBehaviour:
   wall: {fileID: 2939809394992470905, guid: 9d86648015de94b4885655c4ad2471a3, type: 3}
   door: {fileID: 8255035195537589393, guid: 5563f907bfa79574aa13db3291b963ed, type: 3}
   key: {fileID: 4199380639277852244, guid: 8f79f0b10754fb34f91dc74a99a5607e, type: 3}
+  inv_orb: {fileID: 7721288428080906845, guid: fcc3208307a5f49449d29d7dba5df72d, type: 3}
+  walls: []
   filePath: 
 --- !u!1001 &1131069246
 PrefabInstance:
@@ -699,6 +701,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1824340380413090, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4549428611729446, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -820,7 +826,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393506378}
-  m_LocalRotation: {x: 0.18239295, y: -0.004221423, z: 0.01895103, w: 0.983034}
+  m_LocalRotation: {x: 0.18239298, y: -0.004221153, z: 0.018949617, w: 0.983034}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1194,7 +1200,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904406482}
-  m_LocalRotation: {x: 0.12908582, y: -0.04143343, z: 0.1325001, w: 0.9818676}
+  m_LocalRotation: {x: 0.12910067, y: -0.0413218, z: 0.13248391, w: 0.98187244}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

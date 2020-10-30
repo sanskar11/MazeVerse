@@ -3,6 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+static class Values
+{
+    public const int DOOR = -1;
+    public const int WALL = 0;
+    public const int KEY = 1;
+    public const int INV_ORB = 11;
+    public const int o2_ORB = 12;
+    public const int o3_ORB = 13;
+    public const float KEY_HEIGHT = 0.5f;
+    public const float ORB_HEIGHT = 0;
+    public const float WALL_HEIGHT = 3;
+}
+
 public class MazeLoader : MonoBehaviour
 {
     public string [] myArray;
@@ -12,19 +25,22 @@ public class MazeLoader : MonoBehaviour
     static int cols = 3;
     static float xOffset = -1;
     static float zOffset = -1;
-    static float height = 3;
-    static float yOffset = 0.5f+height/2;
+    static float yOffset = 0.5f;
     int[, ,] mat = new int[rows,cols,4];
-    int[,] keys = new int[rows,cols];
+    List<int>[,] mazeObjects = new List<int>[rows,cols];
     float BOXSIZE = 3f;
     public GameObject wall;
     public GameObject door;
     public GameObject key;
+    public GameObject inv_orb;
+    public List<GameObject> walls;
     public string filePath;
+    float startTime;
     void Start(){
         filePath = Application.dataPath + "/" + "maze_dcheck.txt";
         ReadFromFile();
         ConstructMaze();
+        startTime = Time.time;
         // SpawnObstacle(3,2,-10,0);
         // SpawnObstacle(6,2,-10,0);
         // SpawnObstacle(3,1,-10,1);
@@ -51,7 +67,12 @@ public class MazeLoader : MonoBehaviour
         for(int l=doors_till; l<myArray.Length; l++){
             string line = myArray[l];
             string [] nums = line.Split(' ');
-            keys[int.Parse(nums[0]),int.Parse(nums[1])] = 1;
+            int i = int.Parse(nums[0]);
+            int j = int.Parse(nums[1]);
+            int val = int.Parse(nums[2]);
+            if(mazeObjects[i,j]==null)
+                mazeObjects[i,j] = new List<int>();
+            mazeObjects[i,j].Add(val);
         }
     }
 
@@ -61,10 +82,11 @@ public class MazeLoader : MonoBehaviour
         if(value>0)
             return;
         GameObject obs = null;
-        if(value==0)
+        if(value==Values.WALL)
             obs = Instantiate(wall, transform.position, Quaternion.Euler(0,0,0));
-        else if(value==-1)
+        else if(value==Values.DOOR)
             obs = Instantiate(door, transform.position, Quaternion.Euler(0,0,0));
+
         if(align==1){
             obs.transform.rotation = Quaternion.Euler(0,90,0);
             obs.transform.position = new Vector3(x,y,z+BOXSIZE/2);
@@ -72,10 +94,17 @@ public class MazeLoader : MonoBehaviour
         else{
             obs.transform.position = new Vector3(x+BOXSIZE/2,y,z);
         }
+        if(value==Values.WALL)
+            walls.Add(obs);
     }
 
-    public void SpawnKey(float x, float y, float z){
-        GameObject obs = Instantiate(key, new Vector3(x,y,z), Quaternion.Euler(0,0,0));
+    public void SpawnMazeObject(float x, float y, float z, int value){
+        GameObject obs = null;
+        if(value==Values.KEY)
+            obs = Instantiate(key, new Vector3(x,yOffset+Values.KEY_HEIGHT,z), Quaternion.Euler(0,0,0));
+        if(value==Values.INV_ORB)
+            obs = Instantiate(inv_orb, new Vector3(x,yOffset+Values.ORB_HEIGHT,z), Quaternion.Euler(0,0,0));
+        return;
     }
 
     public void ConstructMaze(){
@@ -83,7 +112,7 @@ public class MazeLoader : MonoBehaviour
             for(int j=0; j<cols; j++){
                 float x = (float)i*BOXSIZE + xOffset;
                 float z = (float)j*BOXSIZE + zOffset;
-                float y = yOffset;
+                float y = yOffset+Values.WALL_HEIGHT/2;
                 // if(j<2)
                 //     continue;
                 // if(mat[i,j,0]<=0)
@@ -98,8 +127,12 @@ public class MazeLoader : MonoBehaviour
                 SpawnObstacle(x,y,z+BOXSIZE,0,mat[i,j,1]);
                 SpawnObstacle(x+BOXSIZE,y,z,1,mat[i,j,2]);
                 SpawnObstacle(x,y,z,0,mat[i,j,3]);
-                if(keys[i,j]>0)
-                    SpawnKey(x+(BOXSIZE/2),1,z+(BOXSIZE/2));
+                List<int> li = mazeObjects[i,j];
+                if(li!=null){
+                    print("key");
+                    for(int l=0; l<li.Count; l++)
+                        SpawnMazeObject(x+(BOXSIZE/2),y,z+(BOXSIZE/2),li[l]);
+                }
                 // if(j==2)
                 //     return;
             }
