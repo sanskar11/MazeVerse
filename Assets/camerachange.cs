@@ -24,21 +24,22 @@ public class camerachange : MonoBehaviour
      }
  }
 
+ public void toggleCam(bool value, bool damage_is_on){
+        cam1.enabled = !cam1.enabled;
+        cam2.enabled = !cam2.enabled;
+        togglePlayerMarker(value);
+        damage=(value & damage_is_on);
+ }
+
  void Update() {
  
      if (Input.GetKeyDown(KeyCode.C)) {
-         cam1.enabled = !cam1.enabled;
-         cam2.enabled = !cam2.enabled;
-         togglePlayerMarker(true);
-         damage=true;
+         toggleCam(true,true);
      }
      if(Input.GetKeyUp(KeyCode.C)) {
-         cam1.enabled = !cam1.enabled;
-         cam2.enabled = !cam2.enabled;
-         togglePlayerMarker(false);
-         damage=false;
+         toggleCam(false,true);
      }
-     if(damage==true)
+     if(damage)
      {
          hb.TakeDamage(2);
      }

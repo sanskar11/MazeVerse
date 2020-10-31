@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class topViewFloor : MonoBehaviour
 {
-    public Camera cam1;
-    public Camera cam2;
+    camerachange cam_change;
     private bool canChange=true;
     void Start()
     {
-        cam1.enabled = true;
-        cam2.enabled = false;
+        cam_change = GameObject.Find("Player").GetComponent<camerachange>();
     }
     void OnTriggerEnter()
     {
-        cam2.enabled = true;
+        cam_change.toggleCam(true,false);
     }
 
     void OnTriggerExit()
     {
-        cam1.enabled = true;
-        cam2.enabled = false;
+        cam_change.toggleCam(false,false);
     }
 }
