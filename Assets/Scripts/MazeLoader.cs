@@ -21,10 +21,12 @@ public class MazeLoader : MonoBehaviour
     public string [] myArray;
     public List<List<int>> myli;
     public List<int> temp;
-    static int rows = 3;
-    static int cols = 3;
-    static float xOffset = -1;
-    static float zOffset = -1;
+    public static int rows = 15;
+    public static int cols = 15;
+    public static float xOffset = -1;
+    public static float zOffset = -1;
+    public float topCamPosX;
+    public float topCamPosZ;
     static float yOffset = 0.5f;
     int[, ,] mat = new int[rows,cols,4];
     List<int>[,] mazeObjects = new List<int>[rows,cols];
@@ -35,15 +37,20 @@ public class MazeLoader : MonoBehaviour
     public GameObject inv_orb;
     public List<GameObject> walls;
     public string filePath;
+    public bool startCompleted = false;
     float startTime;
     void Start(){
-        filePath = Application.dataPath + "/" + "maze_dcheck.txt";
+        topCamPosX = xOffset + BOXSIZE*rows/2;
+        topCamPosZ = zOffset + BOXSIZE*cols/2;
+        print("Here"+topCamPosX.ToString());
+        filePath = Application.dataPath + "/" + "maze 2 lol.txt";
         ReadFromFile();
         ConstructMaze();
         startTime = Time.time;
         // SpawnObstacle(3,2,-10,0);
         // SpawnObstacle(6,2,-10,0);
         // SpawnObstacle(3,1,-10,1);
+        startCompleted = true;
     }
 
     public void ReadFromFile(){

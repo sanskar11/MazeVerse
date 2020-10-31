@@ -84,7 +84,7 @@ public class Healthbar : MonoBehaviour {
             // Each time the health is changed, update it visibly:
             UpdateHealth();
         }
-        Debug.Log(health);
+        // Debug.Log(health);
     }
 
     // Set the health bar to display the same health value as the health variable:
