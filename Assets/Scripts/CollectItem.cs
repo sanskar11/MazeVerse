@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CollectItem : MonoBehaviour
 {
     public bool keyCollected = false;
+    public bool immunityOrbCollected = false;
     List<GameObject> walls;
     public Healthbar hb;
     public Image keyimg;
@@ -57,12 +58,36 @@ public class CollectItem : MonoBehaviour
             StartCoroutine("HideUnhideWalls");
             Destroy(collisionInfo.gameObject);
         }
+        if(collisionInfo.collider.tag == "Immunity Orb"){
+            StartCoroutine("ActivateDeactivateImmunity");
+            Destroy(collisionInfo.gameObject);
+        }
+        if(collisionInfo.collider.tag == "Ghost"){
+            if(immunityOrbCollected)
+                Destroy(collisionInfo.gameObject);
+            else{
+                Debug.Log("u ded bruh.");
+                hb.TakeDamage(50);
+            }
+        }
+        if(collisionInfo.collider.tag == "Start Platform"){
+            Debug.Log("Starting");
+        }
+        if(collisionInfo.collider.tag == "End Platform"){
+            Debug.Log("Finished Level! Congrats!");
+        }
     }
 
     IEnumerator HideUnhideWalls(){
         toggleWalls(false);
         yield return (new WaitForSeconds(3));
         toggleWalls(true);
+    }
+
+    IEnumerator ActivateDeactivateImmunity(){
+        immunityOrbCollected = true;
+        yield return (new WaitForSeconds(20));
+        immunityOrbCollected = false;
     }
 
     void toggleWalls(bool value){

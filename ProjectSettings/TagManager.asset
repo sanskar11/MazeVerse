@@ -9,6 +9,10 @@ TagManager:
   - Door
   - Key
   - Invisibility Orb
+  - Ghost
+  - Immunity Orb
+  - End Platform
+  - Start Platform
   layers:
   - Default
   - TransparentFX

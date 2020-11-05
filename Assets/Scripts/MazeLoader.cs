@@ -9,10 +9,14 @@ static class Values
     public const int WALL = 0;
     public const int KEY = 1;
     public const int INV_ORB = 11;
-    public const int o2_ORB = 12;
+    public const int IMM_ORB = 12;
     public const int o3_ORB = 13;
+    public const int GHOST = 21;
+    public const int StartPlatform = 31;
+    public const int EndPlatform = 32;
     public const float KEY_HEIGHT = 0.5f;
     public const float ORB_HEIGHT = 0;
+    public const float GHOST_HEIGHT = 0.25f;
     public const float WALL_HEIGHT = 3;
 }
 
@@ -35,6 +39,10 @@ public class MazeLoader : MonoBehaviour
     public GameObject door;
     public GameObject key;
     public GameObject inv_orb;
+    public GameObject imm_orb;
+    public GameObject ghost;
+    public GameObject start_platform;
+    public GameObject end_platform;
     public List<GameObject> walls;
     public string filePath;
     public bool startCompleted = false;
@@ -50,6 +58,8 @@ public class MazeLoader : MonoBehaviour
         // SpawnObstacle(3,2,-10,0);
         // SpawnObstacle(6,2,-10,0);
         // SpawnObstacle(3,1,-10,1);
+        SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.StartPlatform);
+        SpawnMazeObject(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,0,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2,Values.EndPlatform);
         startCompleted = true;
     }
 
@@ -107,10 +117,19 @@ public class MazeLoader : MonoBehaviour
 
     public void SpawnMazeObject(float x, float y, float z, int value){
         GameObject obs = null;
+        var rot = Quaternion.Euler(0,0,0);
         if(value==Values.KEY)
-            obs = Instantiate(key, new Vector3(x,yOffset+Values.KEY_HEIGHT,z), Quaternion.Euler(0,0,0));
+            obs = Instantiate(key, new Vector3(x,yOffset+Values.KEY_HEIGHT,z), rot);
         if(value==Values.INV_ORB)
-            obs = Instantiate(inv_orb, new Vector3(x,yOffset+Values.ORB_HEIGHT,z), Quaternion.Euler(0,0,0));
+            obs = Instantiate(inv_orb, new Vector3(x,yOffset+Values.ORB_HEIGHT,z), rot);
+        if(value==Values.IMM_ORB)
+            obs = Instantiate(imm_orb, new Vector3(x,yOffset+Values.ORB_HEIGHT,z), rot);
+        if(value==Values.GHOST)
+            obs = Instantiate(ghost, new Vector3(x,yOffset+Values.GHOST_HEIGHT,z), rot);
+        if(value==Values.StartPlatform)
+            obs = Instantiate(start_platform, new Vector3(x,yOffset,z), rot);
+        if(value==Values.EndPlatform)
+            obs = Instantiate(end_platform, new Vector3(x,yOffset,z), rot);
         return;
     }
 
@@ -136,7 +155,6 @@ public class MazeLoader : MonoBehaviour
                 SpawnObstacle(x,y,z,0,mat[i,j,3]);
                 List<int> li = mazeObjects[i,j];
                 if(li!=null){
-                    print("key");
                     for(int l=0; l<li.Count; l++)
                         SpawnMazeObject(x+(BOXSIZE/2),y,z+(BOXSIZE/2),li[l]);
                 }
