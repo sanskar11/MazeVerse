@@ -21,6 +21,7 @@ public class CollectItem : MonoBehaviour
     void OnCollisionEnter(Collision collisionInfo)
     {
         if(collisionInfo.collider.tag == "Key"){
+            FindObjectOfType<AudioManager>().Play("KeyCollect");
             keyCollected = true;
             Destroy(collisionInfo.gameObject);
             Color temp = keyimg.color; //we need to assign to a variable and do it
@@ -66,7 +67,7 @@ public class CollectItem : MonoBehaviour
             if(immunityOrbCollected)
                 Destroy(collisionInfo.gameObject);
             else{
-                Debug.Log("u ded bruh.");
+                FindObjectOfType<AudioManager>().Play("OOF");
                 hb.TakeDamage(50);
             }
         }
