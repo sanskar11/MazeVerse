@@ -14,6 +14,7 @@ static class Values
     public const int GHOST = 21;
     public const int StartPlatform = 31;
     public const int EndPlatform = 32;
+    public const int TrapDoorIn = 33;
     public const float KEY_HEIGHT = 0.5f;
     public const float ORB_HEIGHT = 0;
     public const float GHOST_HEIGHT = 0.25f;
@@ -43,6 +44,7 @@ public class MazeLoader : MonoBehaviour
     public GameObject ghost;
     public GameObject start_platform;
     public GameObject end_platform;
+    public GameObject trap_door_in;
     public List<GameObject> walls;
     public string filePath;
     public bool startCompleted = false;
@@ -84,12 +86,25 @@ public class MazeLoader : MonoBehaviour
         for(int l=doors_till; l<myArray.Length; l++){
             string line = myArray[l];
             string [] nums = line.Split(' ');
+
             int i = int.Parse(nums[0]);
             int j = int.Parse(nums[1]);
             int val = int.Parse(nums[2]);
-            if(mazeObjects[i,j]==null)
-                mazeObjects[i,j] = new List<int>();
-            mazeObjects[i,j].Add(val);
+
+            if(val == Values.TrapDoorIn){
+                float x = (float)i*BOXSIZE + xOffset + BOXSIZE/2;
+                float z = (float)j*BOXSIZE + zOffset + BOXSIZE/2;
+                GameObject obs = SpawnMazeObject(x,yOffset,z,val);
+                float exitx = (float)(int.Parse(nums[3]))*BOXSIZE + xOffset + BOXSIZE/2;
+                float exitz = (float)(int.Parse(nums[4]))*BOXSIZE + zOffset + BOXSIZE/2;
+                obs.GetComponent<TrapDoorInScript>().SetExitLocation(new Vector3(exitx,3f,exitz));
+            }
+
+            else{
+                if(mazeObjects[i,j]==null)
+                    mazeObjects[i,j] = new List<int>();
+                mazeObjects[i,j].Add(val);
+            }
         }
     }
 
@@ -115,7 +130,7 @@ public class MazeLoader : MonoBehaviour
             walls.Add(obs);
     }
 
-    public void SpawnMazeObject(float x, float y, float z, int value){
+    public GameObject SpawnMazeObject(float x, float y, float z, int value){
         GameObject obs = null;
         var rot = Quaternion.Euler(0,0,0);
         if(value==Values.KEY)
@@ -130,7 +145,9 @@ public class MazeLoader : MonoBehaviour
             obs = Instantiate(start_platform, new Vector3(x,yOffset,z), rot);
         if(value==Values.EndPlatform)
             obs = Instantiate(end_platform, new Vector3(x,yOffset,z), rot);
-        return;
+        if(value==Values.TrapDoorIn)
+            obs = Instantiate(trap_door_in, new Vector3(x,yOffset,z), rot);
+        return obs;
     }
 
     public void ConstructMaze(){
@@ -139,16 +156,7 @@ public class MazeLoader : MonoBehaviour
                 float x = (float)i*BOXSIZE + xOffset;
                 float z = (float)j*BOXSIZE + zOffset;
                 float y = yOffset+Values.WALL_HEIGHT/2;
-                // if(j<2)
-                //     continue;
-                // if(mat[i,j,0]<=0)
-                //     SpawnObstacle(x,y,z,1,mat[i,j,0]);
-                // if(mat[i,j,1]<=0)
-                //     SpawnObstacle(x,y,z+BOXSIZE,0);
-                // if(mat[i,j,2]<=0)
-                //     SpawnObstacle(x+BOXSIZE,y,z,1);
-                // if(mat[i,j,3]<=0)
-                //     SpawnObstacle(x,y,z,0);
+
                 SpawnObstacle(x,y,z,1,mat[i,j,0]);
                 SpawnObstacle(x,y,z+BOXSIZE,0,mat[i,j,1]);
                 SpawnObstacle(x+BOXSIZE,y,z,1,mat[i,j,2]);
@@ -158,8 +166,6 @@ public class MazeLoader : MonoBehaviour
                     for(int l=0; l<li.Count; l++)
                         SpawnMazeObject(x+(BOXSIZE/2),y,z+(BOXSIZE/2),li[l]);
                 }
-                // if(j==2)
-                //     return;
             }
         }
     }

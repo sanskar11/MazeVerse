@@ -302,11 +302,20 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MainTheme
     clip: {fileID: 8300000, guid: b7f32e69f642379488bfb2da8d6c6973, type: 3}
-    volume: 1
+    volume: 0
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: TrapDoorNearby
+    clip: {fileID: 8300000, guid: 8ceb5d5ad7ec04245ad8ca70fbcfcdda, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &40185741
@@ -389,7 +398,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97173138}
-  m_LocalRotation: {x: 0.15865584, y: -0.022108497, z: 0.13149485, w: 0.9782887}
+  m_LocalRotation: {x: 0.15865582, y: -0.022108458, z: 0.13149485, w: 0.9782887}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1306,7 +1315,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.14920934, y: -0.041134354, z: 0.006212614, w: 0.9879302}
+  m_LocalRotation: {x: 0.14920932, y: -0.04113433, z: 0.0062126103, w: 0.9879302}
   m_LocalPosition: {x: 0, y: 2.8649342, z: -4.5012913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1371,6 +1380,8 @@ MonoBehaviour:
   start_platform: {fileID: 8828289449086577312, guid: 26469be578d4d7b46af2c850a3defd6b,
     type: 3}
   end_platform: {fileID: 5123806236750924925, guid: e3debadb02b2ea44c964b4e9210ea54a,
+    type: 3}
+  trap_door_in: {fileID: 705708071429805257, guid: 100a1264f38cb9e418c2081be275e78c,
     type: 3}
   walls: []
   filePath: 
