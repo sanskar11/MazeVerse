@@ -71,6 +71,14 @@ public class CollectItem : MonoBehaviour
                 hb.TakeDamage(50);
             }
         }
+        if(collisionInfo.collider.tag == "Lava Ball"){
+            if(immunityOrbCollected)
+                Destroy(collisionInfo.gameObject);
+            else{
+                FindObjectOfType<AudioManager>().Play("OOF");
+                hb.TakeDamage(50);
+            }
+        }
         if(collisionInfo.collider.tag == "Start Platform"){
             Debug.Log("Starting");
         }

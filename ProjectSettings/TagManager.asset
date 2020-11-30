@@ -13,6 +13,7 @@ TagManager:
   - Immunity Orb
   - End Platform
   - Start Platform
+  - Lava Ball
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - 
   - 
   - Glow
-  - 
-  - 
+  - Ball Collision
+  - Wall Collision
   - 
   - 
   - 

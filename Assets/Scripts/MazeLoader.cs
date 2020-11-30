@@ -15,10 +15,12 @@ static class Values
     public const int StartPlatform = 31;
     public const int EndPlatform = 32;
     public const int TrapDoorIn = 33;
+    public const int LAVA_BALL = 41;
     public const float KEY_HEIGHT = 0.5f;
     public const float ORB_HEIGHT = 0;
     public const float GHOST_HEIGHT = 0.25f;
     public const float WALL_HEIGHT = 3;
+    public const float LAVA_BALL_HEIGHT = 5f;
 }
 
 public class MazeLoader : MonoBehaviour
@@ -30,6 +32,9 @@ public class MazeLoader : MonoBehaviour
     public static int cols = 15;
     public static float xOffset = -1;
     public static float zOffset = -1;
+    public static float g = 9.8f;
+    public float lavaThrowPeriod = 5f;
+    public float lavaAirTime = 2f;
     public float topCamPosX;
     public float topCamPosZ;
     static float yOffset = 0.5f;
@@ -45,6 +50,9 @@ public class MazeLoader : MonoBehaviour
     public GameObject start_platform;
     public GameObject end_platform;
     public GameObject trap_door_in;
+    public GameObject lava_ball;
+    public GameObject player;
+    public bool waitingThrow = false;
     public List<GameObject> walls;
     public string filePath;
     public bool startCompleted = false;
@@ -57,12 +65,32 @@ public class MazeLoader : MonoBehaviour
         ReadFromFile();
         ConstructMaze();
         startTime = Time.time;
-        // SpawnObstacle(3,2,-10,0);
-        // SpawnObstacle(6,2,-10,0);
-        // SpawnObstacle(3,1,-10,1);
         SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.StartPlatform);
         SpawnMazeObject(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,0,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2,Values.EndPlatform);
         startCompleted = true;
+        player = GameObject.Find("Player");
+    }
+
+    void Update()
+    {
+        if(!waitingThrow){
+            StartCoroutine("ThrowLavaBall");
+        }       
+    }
+
+    IEnumerator ThrowLavaBall(){
+        waitingThrow = true;
+
+        float landx = player.transform.position[0];
+        float landz = player.transform.position[2];
+        float initx = xOffset+(BOXSIZE/2)*rows;
+        float initz = zOffset+(BOXSIZE/2)*cols;
+        float t = lavaAirTime;
+        GameObject obs = SpawnMazeObject(initx,0,initz,Values.LAVA_BALL);
+        obs.GetComponent<Rigidbody>().velocity = new Vector3((landx-initx)/t,g*t/2 - Values.LAVA_BALL_HEIGHT/t,(landz-initz)/t); 
+
+        yield return (new WaitForSeconds(lavaThrowPeriod));
+        waitingThrow = false;
     }
 
     public void ReadFromFile(){
@@ -147,6 +175,8 @@ public class MazeLoader : MonoBehaviour
             obs = Instantiate(end_platform, new Vector3(x,yOffset,z), rot);
         if(value==Values.TrapDoorIn)
             obs = Instantiate(trap_door_in, new Vector3(x,yOffset,z), rot);
+        if(value==Values.LAVA_BALL)
+            obs = Instantiate(lava_ball, new Vector3(x,yOffset+Values.LAVA_BALL_HEIGHT,z), rot);
         return obs;
     }
 

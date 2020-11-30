@@ -1369,6 +1369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myArray: []
   temp: 
+  lavaThrowPeriod: 5
+  lavaAirTime: 5
   topCamPosX: 0
   topCamPosZ: 0
   wall: {fileID: 2939809394992470905, guid: 9d86648015de94b4885655c4ad2471a3, type: 3}
@@ -1383,6 +1385,9 @@ MonoBehaviour:
     type: 3}
   trap_door_in: {fileID: 705708071429805257, guid: 100a1264f38cb9e418c2081be275e78c,
     type: 3}
+  lava_ball: {fileID: 79215983284983613, guid: f5d602f8779cadb4a8976030a10a3e8c, type: 3}
+  player: {fileID: 0}
+  waitingThrow: 0
   walls: []
   filePath: 
   startCompleted: 0
@@ -2135,7 +2140,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393506378}
-  m_LocalRotation: {x: 0.19588687, y: -0.0044790925, z: 0.019108716, w: 0.9804301}
+  m_LocalRotation: {x: 0.19588687, y: -0.004479076, z: 0.019108713, w: 0.9804301}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
