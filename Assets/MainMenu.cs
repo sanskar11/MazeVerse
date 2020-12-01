@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     void Start()
     {
-        PlayerPrefs.SetString("mazename", "maze 1 lol");    
+        PlayerPrefs.SetString("mazename", "maze 1 lol");
     }
     public void PlayGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
