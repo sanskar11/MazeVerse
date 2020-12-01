@@ -11,8 +11,13 @@ public class CollectItem : MonoBehaviour
     public Healthbar hb;
     public Image keyimg;
     private bool canReduceHealth = true;
-    
+    public GameObject EndCardUI;
+    public Material defaultMat;
+    public Material immuneMat;
+    public SkinnedMeshRenderer playerBodyMesh;
+
     void Start(){
+        playerBodyMesh = GameObject.Find("Player").transform.Find("Model").gameObject.GetComponent<SkinnedMeshRenderer>();
         walls = GameObject.Find("Main Camera").GetComponent<MazeLoader>().walls;
         hb = GameObject.Find("Healthbar").GetComponent<Healthbar>();
         keyimg = GetComponent<Image>();
@@ -84,6 +89,8 @@ public class CollectItem : MonoBehaviour
         }
         if(collisionInfo.collider.tag == "End Platform"){
             Debug.Log("Finished Level! Congrats!");
+            Time.timeScale = 0f;
+            EndCardUI.SetActive(true);
         }
     }
 
@@ -95,8 +102,16 @@ public class CollectItem : MonoBehaviour
 
     IEnumerator ActivateDeactivateImmunity(){
         immunityOrbCollected = true;
+        setPlayerMaterial(immuneMat);
         yield return (new WaitForSeconds(20));
+        setPlayerMaterial(defaultMat);
         immunityOrbCollected = false;
+    }
+
+    void setPlayerMaterial(Material mat){
+        Material[] matArray = playerBodyMesh.materials;
+        matArray[0] = mat;
+        playerBodyMesh.materials = matArray;
     }
 
     void toggleWalls(bool value){

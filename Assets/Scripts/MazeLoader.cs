@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 static class Values
 {
@@ -57,6 +58,21 @@ public class MazeLoader : MonoBehaviour
     public string filePath;
     public bool startCompleted = false;
     float startTime;
+
+    // void OnEnable()
+    // {
+    //     SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    // }
+
+    // void OnDisable()
+    // {
+    //     SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    // }
+
+    // void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    // {
+    // }
+
     void Start(){
         topCamPosX = xOffset + BOXSIZE*rows/2;
         topCamPosZ = zOffset + BOXSIZE*cols/2;
@@ -75,7 +91,7 @@ public class MazeLoader : MonoBehaviour
     {
         if(!waitingThrow){
             StartCoroutine("ThrowLavaBall");
-        }       
+        } 
     }
 
     IEnumerator ThrowLavaBall(){
