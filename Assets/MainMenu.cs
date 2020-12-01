@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    void Start()
+    {
+        PlayerPrefs.SetString("mazename", "maze 1 lol");    
+    }
     public void PlayGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("SampleScene"));
@@ -12,5 +16,10 @@ public class MainMenu : MonoBehaviour
     
     public void QuitGame(){
         Application.Quit();
+    }
+
+    public void SelectLevel(int val){
+        PlayerPrefs.SetString("mazename", "maze " + (val+1).ToString() + " lol");
+        Debug.Log("Set " + (val+1).ToString());
     }
 }

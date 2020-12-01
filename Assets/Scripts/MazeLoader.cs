@@ -29,8 +29,10 @@ public class MazeLoader : MonoBehaviour
     public string [] myArray;
     public List<List<int>> myli;
     public List<int> temp;
-    public static int rows = 15;
-    public static int cols = 15;
+    public static int max_rows = 50;
+    public static int max_cols = 50;
+    public int rows;
+    public int cols;
     public static float xOffset = -1;
     public static float zOffset = -1;
     public static float g = 9.8f;
@@ -39,8 +41,8 @@ public class MazeLoader : MonoBehaviour
     public float topCamPosX;
     public float topCamPosZ;
     static float yOffset = 0.5f;
-    int[, ,] mat = new int[rows,cols,4];
-    List<int>[,] mazeObjects = new List<int>[rows,cols];
+    int[, ,] mat = new int[max_rows,max_cols,4];
+    List<int>[,] mazeObjects = new List<int>[max_rows,max_cols];
     float BOXSIZE = 3f;
     public GameObject wall;
     public GameObject door;
@@ -74,12 +76,12 @@ public class MazeLoader : MonoBehaviour
     // }
 
     void Start(){
-        topCamPosX = xOffset + BOXSIZE*rows/2;
-        topCamPosZ = zOffset + BOXSIZE*cols/2;
-        print("Here"+topCamPosX.ToString());
-        filePath = Application.dataPath + "/" + "maze 2 lol.txt";
+        filePath = Application.dataPath + "/Mazes/" + PlayerPrefs.GetString("mazename") + ".txt";
+        print(filePath);
         ReadFromFile();
         ConstructMaze();
+        topCamPosX = xOffset + BOXSIZE*rows/2;
+        topCamPosZ = zOffset + BOXSIZE*cols/2;
         startTime = Time.time;
         SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.StartPlatform);
         SpawnMazeObject(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,0,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2,Values.EndPlatform);
@@ -114,8 +116,10 @@ public class MazeLoader : MonoBehaviour
         int r = 0;
         int c = 0;
         print(myArray.Length);
-        int doors_till = rows*cols;
-        for(int l=0; l<doors_till; l++){
+        rows = int.Parse(myArray[0].Split(' ')[0]);
+        cols = int.Parse(myArray[1].Split(' ')[0]);
+        int doors_till = rows*cols+2;
+        for(int l=2; l<doors_till; l++){
             string line = myArray[l];
             temp = new List<int>();
             string [] nums = line.Split(' ');
