@@ -16,7 +16,7 @@ public class RandomMazeGenerator : MonoBehaviour
     public void DownloadRandomMaze(){
         string config = GetInputFromEntry(Entry);
         if(config == "")
-            config = "5-5-20-2-3-2-2";
+            config = "12-12-20-2-3-2-2-1";
         string url = "http://localhost:5000/maze/"+config;
         print(url);
         Status.GetComponent<TextMeshProUGUI>().text = "Downloading...";

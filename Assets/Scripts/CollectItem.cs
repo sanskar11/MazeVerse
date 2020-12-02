@@ -20,7 +20,7 @@ public class CollectItem : MonoBehaviour
         playerBodyMesh = GameObject.Find("Player").transform.Find("Model").gameObject.GetComponent<SkinnedMeshRenderer>();
         walls = GameObject.Find("Main Camera").GetComponent<MazeLoader>().walls;
         hb = GameObject.Find("Healthbar").GetComponent<Healthbar>();
-        keyimg = GetComponent<Image>();
+        keyimg = GameObject.Find("KeyImage").GetComponent<Image>();
     }
 
     void OnCollisionEnter(Collision collisionInfo)
@@ -48,7 +48,7 @@ public class CollectItem : MonoBehaviour
                 keyimg.color=temp;
                 if(canReduceHealth)
                 {
-                    hb.TakeDamage(50);
+                    hb.TakeDamage(20);
                     canReduceHealth=false;
                 }
             }
@@ -57,7 +57,7 @@ public class CollectItem : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("DoorLocked");
                 if(canReduceHealth)
                 {
-                    hb.TakeDamage(50);
+                    hb.TakeDamage(20);
                     canReduceHealth=false;
                 }
             }
@@ -79,7 +79,7 @@ public class CollectItem : MonoBehaviour
             }
             else{
                 FindObjectOfType<AudioManager>().Play("OOF");
-                hb.TakeDamage(50);
+                hb.TakeDamage(20);
             }
         }
         if(collisionInfo.collider.tag == "Lava Ball"){

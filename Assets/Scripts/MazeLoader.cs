@@ -16,6 +16,7 @@ static class Values
     public const int StartPlatform = 31;
     public const int EndPlatform = 32;
     public const int TrapDoorIn = 33;
+    public const int TopViewPlatform = 34;
     public const int LAVA_BALL = 41;
     public const float KEY_HEIGHT = 0.5f;
     public const float ORB_HEIGHT = 0;
@@ -53,6 +54,7 @@ public class MazeLoader : MonoBehaviour
     public GameObject ghost;
     public GameObject start_platform;
     public GameObject end_platform;
+    public GameObject top_view_platform;
     public GameObject trap_door_in;
     public GameObject lava_ball;
     public GameObject player;
@@ -195,6 +197,8 @@ public class MazeLoader : MonoBehaviour
             obs = Instantiate(start_platform, new Vector3(x,yOffset,z), rot);
         if(value==Values.EndPlatform)
             obs = Instantiate(end_platform, new Vector3(x,yOffset,z), rot);
+        if(value==Values.TopViewPlatform)
+            obs = Instantiate(top_view_platform, new Vector3(x,yOffset,z), rot);
         if(value==Values.TrapDoorIn)
             obs = Instantiate(trap_door_in, new Vector3(x,yOffset,z), rot);
         if(value==Values.LAVA_BALL)
