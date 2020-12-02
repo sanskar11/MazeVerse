@@ -8,6 +8,7 @@ public class Healthbar : MonoBehaviour {
 
     // Visible health bar ui:
     private Slider healthbarDisplay;
+    public GameObject GameOverUI;
 
     [Header("Main Variables:")]
     // Health variable: (default range: 0-100)
@@ -65,9 +66,10 @@ public class Healthbar : MonoBehaviour {
         healthPercentage = int.Parse((Mathf.Round(maximumHealth * (health / 100f))).ToString());
 
         // If the player's health is below the minimum health, then set it to the minimum health:
-        if (health < minimumHealth)
+        if (health <= minimumHealth)
         {
             health = minimumHealth;
+            GameOver();
         }
 
         // If the player's health is above the maximum health, then set it to the maximum health:
@@ -85,6 +87,11 @@ public class Healthbar : MonoBehaviour {
             UpdateHealth();
         }
         // Debug.Log(health);
+    }
+
+    public void GameOver(){
+        Time.timeScale = 0f;
+        GameOverUI.SetActive(true);
     }
 
     // Set the health bar to display the same health value as the health variable:
