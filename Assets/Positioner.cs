@@ -20,8 +20,11 @@ public class Positioner : MonoBehaviour
     {
         if(ml.startCompleted && !pos_has_been_set){
             float topCamPosX = ml.topCamPosX;
+            float topCamViewSize = ml.topCamViewSize;
             float topCamPosZ = ml.topCamPosZ;
-            cam.transform.position = new Vector3(topCamPosX, 55, topCamPosZ);
+            print("SETTING POSITION " + topCamViewSize.ToString());
+            cam.GetComponent<Camera>().orthographicSize = topCamViewSize; 
+            cam.transform.position = new Vector3(topCamPosX, 50, topCamPosZ);
             pos_has_been_set = true;
         }
     }

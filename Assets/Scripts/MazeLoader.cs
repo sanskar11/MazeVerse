@@ -39,6 +39,7 @@ public class MazeLoader : MonoBehaviour
     public float lavaThrowPeriod = 5f;
     public float lavaAirTime = 2f;
     public float topCamPosX;
+    public float topCamViewSize;
     public float topCamPosZ;
     static float yOffset = 0.5f;
     int[, ,] mat = new int[max_rows,max_cols,4];
@@ -82,6 +83,7 @@ public class MazeLoader : MonoBehaviour
         ConstructMaze();
         topCamPosX = xOffset + BOXSIZE*rows/2;
         topCamPosZ = zOffset + BOXSIZE*cols/2;
+        topCamViewSize = yOffset + Mathf.Max(rows,cols)*2 + 1;
         startTime = Time.time;
         SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.StartPlatform);
         SpawnMazeObject(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,0,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2,Values.EndPlatform);

@@ -302,7 +302,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MainTheme
     clip: {fileID: 8300000, guid: b7f32e69f642379488bfb2da8d6c6973, type: 3}
-    volume: 0
+    volume: 0.1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -311,6 +311,78 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TrapDoorNearby
     clip: {fileID: 8300000, guid: 8ceb5d5ad7ec04245ad8ca70fbcfcdda, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: OrbCollect
+    clip: {fileID: 8300000, guid: eb72ac43442faca479635f594308b644, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: LavaBallDestroy
+    clip: {fileID: 8300000, guid: 6f23c99c3f939244cac263f5640b91f6, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: DoorOpened
+    clip: {fileID: 8300000, guid: 46d8de9f7fe1fe04a9e6bb15761d72c3, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: DoorLocked
+    clip: {fileID: 8300000, guid: 37bc85cbbbdf5be4798be1d022a9d374, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 4553aaf519ca1f747ba2d987896bcf7b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: LevelComplete
+    clip: {fileID: 8300000, guid: bd8091891600dfb46920010061a2afaa, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Pop
+    clip: {fileID: 8300000, guid: 52ce48a86048cbc41af8420f8606c3a9, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: nsound2
+    clip: {fileID: 8300000, guid: 37bc85cbbbdf5be4798be1d022a9d374, type: 3}
     volume: 1
     volumeVariance: 0
     pitch: 1
@@ -398,7 +470,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97173138}
-  m_LocalRotation: {x: 0.15865584, y: -0.022108497, z: 0.13149485, w: 0.9782887}
+  m_LocalRotation: {x: 0.15865582, y: -0.022108499, z: 0.13149513, w: 0.9782886}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2084,7 +2156,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.1492112, y: -0.040840197, z: 0.006168189, w: 0.98794234}
+  m_LocalRotation: {x: 0.14921118, y: -0.040840168, z: 0.0061681843, w: 0.98794234}
   m_LocalPosition: {x: 0, y: 2.8649342, z: -4.5012913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2143,6 +2215,7 @@ MonoBehaviour:
   lavaThrowPeriod: 5
   lavaAirTime: 5
   topCamPosX: 0
+  topCamViewSize: 0
   topCamPosZ: 0
   wall: {fileID: 2939809394992470905, guid: 9d86648015de94b4885655c4ad2471a3, type: 3}
   door: {fileID: 8255035195537589393, guid: 5563f907bfa79574aa13db3291b963ed, type: 3}
@@ -2920,7 +2993,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393506378}
-  m_LocalRotation: {x: 0.19588687, y: -0.0044790925, z: 0.019108716, w: 0.9804301}
+  m_LocalRotation: {x: 0.19588687, y: -0.0044790767, z: 0.019108716, w: 0.9804301}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3402,7 +3475,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
@@ -3427,7 +3500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675321457}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.2, y: 20.67, z: 5.25}
+  m_LocalPosition: {x: 2.2, y: 22, z: 5.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3944,7 +4017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904406482}
-  m_LocalRotation: {x: 0.13843392, y: -0.07344058, z: 0.13786565, w: 0.97797525}
+  m_LocalRotation: {x: 0.1384341, y: -0.0734402, z: 0.13786304, w: 0.9779756}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

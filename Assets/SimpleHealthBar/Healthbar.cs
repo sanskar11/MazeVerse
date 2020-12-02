@@ -90,6 +90,7 @@ public class Healthbar : MonoBehaviour {
     }
 
     public void GameOver(){
+        FindObjectOfType<AudioManager>().Play("GameOver");
         Time.timeScale = 0f;
         GameOverUI.SetActive(true);
     }

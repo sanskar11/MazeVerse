@@ -168,7 +168,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
-        Transform camera = Camera.main.transform;
+        Transform camera = GameObject.Find("Main Camera").transform;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {

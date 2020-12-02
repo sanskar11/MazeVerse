@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("SampleScene"));
+        Time.timeScale = 1f;
     }
     
     public void QuitGame(){

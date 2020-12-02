@@ -41,6 +41,7 @@ public class CollectItem : MonoBehaviour
         if(collisionInfo.collider.tag == "Door"){
             if(keyCollected)
             {
+                FindObjectOfType<AudioManager>().Play("DoorOpened");
                 Destroy(collisionInfo.gameObject);
                 Color temp = keyimg.color;
                 temp.a = 0.4f;
@@ -53,6 +54,7 @@ public class CollectItem : MonoBehaviour
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("DoorLocked");
                 if(canReduceHealth)
                 {
                     hb.TakeDamage(50);
@@ -61,24 +63,30 @@ public class CollectItem : MonoBehaviour
             }
         }
         if(collisionInfo.collider.tag == "Invisibility Orb"){
+            FindObjectOfType<AudioManager>().Play("OrbCollect");
             StartCoroutine("HideUnhideWalls");
             Destroy(collisionInfo.gameObject);
         }
         if(collisionInfo.collider.tag == "Immunity Orb"){
+            FindObjectOfType<AudioManager>().Play("OrbCollect");
             StartCoroutine("ActivateDeactivateImmunity");
             Destroy(collisionInfo.gameObject);
         }
         if(collisionInfo.collider.tag == "Ghost"){
-            if(immunityOrbCollected)
+            if(immunityOrbCollected){
                 Destroy(collisionInfo.gameObject);
+                FindObjectOfType<AudioManager>().Play("Pop");
+            }
             else{
                 FindObjectOfType<AudioManager>().Play("OOF");
                 hb.TakeDamage(50);
             }
         }
         if(collisionInfo.collider.tag == "Lava Ball"){
-            if(immunityOrbCollected)
+            if(immunityOrbCollected){
                 Destroy(collisionInfo.gameObject);
+                FindObjectOfType<AudioManager>().Play("Pop");
+            }
             else{
                 FindObjectOfType<AudioManager>().Play("OOF");
                 hb.TakeDamage(50);
@@ -88,6 +96,7 @@ public class CollectItem : MonoBehaviour
             Debug.Log("Starting");
         }
         if(collisionInfo.collider.tag == "End Platform"){
+            FindObjectOfType<AudioManager>().Play("LevelComplete");
             Debug.Log("Finished Level! Congrats!");
             Time.timeScale = 0f;
             EndCardUI.SetActive(true);
