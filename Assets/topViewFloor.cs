@@ -5,7 +5,7 @@ using UnityEngine;
 public class topViewFloor : MonoBehaviour
 {
     camerachange cam_change;
-    private bool canChange=true;
+    // private bool canChange=true;
     void Start()
     {
         cam_change = GameObject.Find("Player").GetComponent<camerachange>();
