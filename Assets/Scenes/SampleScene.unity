@@ -470,7 +470,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97173138}
-  m_LocalRotation: {x: 0.15865582, y: -0.022108499, z: 0.13149513, w: 0.9782886}
+  m_LocalRotation: {x: 0.15865584, y: -0.022108529, z: 0.13149513, w: 0.9782886}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1004,7 +1004,7 @@ MonoBehaviour:
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
     Value: 0
-    m_MaxSpeed: 450
+    m_MaxSpeed: 350
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -1758,7 +1758,7 @@ MonoBehaviour:
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
     Value: 0
-    m_MaxSpeed: 450
+    m_MaxSpeed: 350
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -2062,7 +2062,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.14921118, y: -0.040840168, z: 0.0061681843, w: 0.98794234}
+  m_LocalRotation: {x: 0.14927344, y: -0.029215232, z: 0.0044124434, w: 0.98835444}
   m_LocalPosition: {x: 0, y: 2.8649342, z: -4.5012913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2118,8 +2118,8 @@ MonoBehaviour:
   temp: 
   rows: 0
   cols: 0
-  lavaThrowPeriod: 5
-  lavaAirTime: 5
+  lavaThrowPeriod: 4
+  lavaAirTime: 4
   topCamPosX: 0
   topCamViewSize: 0
   topCamPosZ: 0
@@ -2508,7 +2508,7 @@ PrefabInstance:
     - target: {fileID: 114359963609766598, guid: d16a19242f7da6d4794facdc63b9c915,
         type: 3}
       propertyPath: healthPerSecond
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114359963609766598, guid: d16a19242f7da6d4794facdc63b9c915,
         type: 3}
@@ -2793,7 +2793,7 @@ MonoBehaviour:
   m_LegacyBlendHint: 0
   m_YAxis:
     Value: 0.38
-    m_MaxSpeed: 4
+    m_MaxSpeed: 2
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -2816,7 +2816,7 @@ MonoBehaviour:
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
     Value: 0
-    m_MaxSpeed: 450
+    m_MaxSpeed: 350
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -3754,7 +3754,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904406482}
-  m_LocalRotation: {x: 0.1384341, y: -0.0734402, z: 0.13786304, w: 0.9779756}
+  m_LocalRotation: {x: 0.1405149, y: -0.058284514, z: 0.13572955, w: 0.97899747}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3956,7 +3956,7 @@ MonoBehaviour:
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
     Value: 0
-    m_MaxSpeed: 450
+    m_MaxSpeed: 350
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X

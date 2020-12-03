@@ -46,20 +46,6 @@ public class CollectItem : MonoBehaviour
                 Color temp = keyimg.color;
                 temp.a = 0.4f;
                 keyimg.color=temp;
-                if(canReduceHealth)
-                {
-                    hb.TakeDamage(20);
-                    canReduceHealth=false;
-                }
-            }
-            else
-            {
-                FindObjectOfType<AudioManager>().Play("DoorLocked");
-                if(canReduceHealth)
-                {
-                    hb.TakeDamage(20);
-                    canReduceHealth=false;
-                }
             }
         }
         if(collisionInfo.collider.tag == "Invisibility Orb"){

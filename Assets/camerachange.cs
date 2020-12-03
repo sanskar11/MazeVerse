@@ -41,7 +41,7 @@ public class camerachange : MonoBehaviour
      }
      if(damage)
      {
-         hb.TakeDamage(1);
+         hb.TakeDamage(0.5);
      }
  }
 }
