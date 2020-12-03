@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 static class Values
 {
@@ -20,7 +21,7 @@ static class Values
     public const int LAVA_BALL = 41;
     public const float KEY_HEIGHT = 0.5f;
     public const float ORB_HEIGHT = 0;
-    public const float GHOST_HEIGHT = 0.25f;
+    public const float GHOST_HEIGHT = 0.5f;
     public const float WALL_HEIGHT = 3;
     public const float LAVA_BALL_HEIGHT = 5f;
 }
@@ -43,6 +44,7 @@ public class MazeLoader : MonoBehaviour
     public float topCamViewSize;
     public float topCamPosZ;
     static float yOffset = 0.5f;
+    public float timeElapsed = 0f;
     int[, ,] mat = new int[max_rows,max_cols,4];
     List<int>[,] mazeObjects = new List<int>[max_rows,max_cols];
     float BOXSIZE = 3f;
@@ -58,6 +60,7 @@ public class MazeLoader : MonoBehaviour
     public GameObject trap_door_in;
     public GameObject lava_ball;
     public GameObject player;
+    public GameObject timerText;
     public bool waitingThrow = false;
     public List<GameObject> walls;
     public string filePath;
@@ -97,7 +100,26 @@ public class MazeLoader : MonoBehaviour
     {
         if(!waitingThrow){
             StartCoroutine("ThrowLavaBall");
-        } 
+        }
+        timeElapsed += Time.deltaTime;
+        timerText.GetComponent<TextMeshProUGUI>().text = formatTime(timeElapsed);
+        if (Input.GetKeyDown(KeyCode.G)) {
+            player.transform.position = new Vector3(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,5,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2);
+        }
+    }
+
+    public string formatTime(float t){
+        float seconds = Mathf.Floor(t%60);
+        t /= 60;
+        float minutes = Mathf.Floor(t%60);
+        return (noSingleDigit(minutes) + ":" + noSingleDigit(seconds));
+    }
+
+    string noSingleDigit(float a){
+        string strf = "";
+        if(a<10)
+            strf += "0";
+        return strf+a.ToString();
     }
 
     IEnumerator ThrowLavaBall(){

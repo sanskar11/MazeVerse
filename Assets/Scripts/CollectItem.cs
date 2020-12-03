@@ -15,10 +15,12 @@ public class CollectItem : MonoBehaviour
     public Material defaultMat;
     public Material immuneMat;
     public SkinnedMeshRenderer playerBodyMesh;
+    public MazeLoader ml;
 
     void Start(){
         playerBodyMesh = GameObject.Find("Player").transform.Find("Model").gameObject.GetComponent<SkinnedMeshRenderer>();
-        walls = GameObject.Find("Main Camera").GetComponent<MazeLoader>().walls;
+        ml = GameObject.Find("Main Camera").GetComponent<MazeLoader>();
+        walls = ml.walls;
         hb = GameObject.Find("Healthbar").GetComponent<Healthbar>();
         keyimg = GameObject.Find("KeyImage").GetComponent<Image>();
     }
@@ -85,8 +87,19 @@ public class CollectItem : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("LevelComplete");
             Debug.Log("Finished Level! Congrats!");
             Time.timeScale = 0f;
+            checkAndStoreScore(ml.timeElapsed);
             EndCardUI.SetActive(true);
         }
+    }
+
+    void checkAndStoreScore(float t){
+        string mazenameVal = PlayerPrefs.GetString("mazename") + " score";
+        if(PlayerPrefs.HasKey(mazenameVal)){
+            if(PlayerPrefs.GetFloat(mazenameVal) > t)
+                PlayerPrefs.SetFloat(mazenameVal,t);
+        }
+        else
+            PlayerPrefs.SetFloat(mazenameVal,t);
     }
 
     IEnumerator HideUnhideWalls(){
