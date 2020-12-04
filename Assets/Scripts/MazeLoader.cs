@@ -112,7 +112,7 @@ public class MazeLoader : MonoBehaviour
 
     void Update()
     {
-        if(!waitingThrow){
+        if(!waitingThrow && timeElapsed>5){
             StartCoroutine("ThrowLavaBall");
         }
         timeElapsed += Time.deltaTime;
