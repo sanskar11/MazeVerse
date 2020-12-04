@@ -38,6 +38,7 @@ public class MazeLoader : MonoBehaviour
     public static float xOffset = -1;
     public static float zOffset = -1;
     public static float g = 9.8f;
+    public float initTopViewPeriod = 5f;
     public float lavaThrowPeriod = 5f;
     public float lavaAirTime = 2f;
     public float topCamPosX;
@@ -91,6 +92,8 @@ public class MazeLoader : MonoBehaviour
         topCamViewSize = yOffset + Mathf.Max(rows,cols)*2 + 1;
         startTime = Time.time;
         SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.StartPlatform);
+        GameObject initial_top_view = SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.TopViewPlatform);
+        StartCoroutine("DestroyAfterSomeTime", initial_top_view);
         SpawnMazeObject(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,0,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2,Values.EndPlatform);
         startCompleted = true;
         player = GameObject.Find("Player");
@@ -146,6 +149,11 @@ public class MazeLoader : MonoBehaviour
 
         yield return (new WaitForSeconds(lavaThrowPeriod));
         waitingThrow = false;
+    }
+
+    IEnumerator DestroyAfterSomeTime(GameObject obs){
+        yield return (new WaitForSeconds(initTopViewPeriod));
+        Destroy(obs);
     }
 
     public void ReadFromFile(){
