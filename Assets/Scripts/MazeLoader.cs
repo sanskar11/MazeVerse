@@ -43,7 +43,7 @@ public class MazeLoader : MonoBehaviour
     public float topCamPosX;
     public float topCamViewSize;
     public float topCamPosZ;
-    static float yOffset = 0.5f;
+    static float yOffset = 1f;
     public float timeElapsed = 0f;
     int[, ,] mat = new int[max_rows,max_cols,4];
     List<int>[,] mazeObjects = new List<int>[max_rows,max_cols];
@@ -100,6 +100,7 @@ public class MazeLoader : MonoBehaviour
                 float x = PlayerPrefs.GetFloat(prefix+"x");
                 float y = PlayerPrefs.GetFloat(prefix+"y");
                 float z = PlayerPrefs.GetFloat(prefix+"z");
+                timeElapsed = PlayerPrefs.GetFloat(prefix+" currenttime");
                 player.transform.position = new Vector3(x,y+1,z);
             }
         }

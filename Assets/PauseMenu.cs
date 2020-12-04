@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.SetFloat(prefix+"x", playerLocation.x);
         PlayerPrefs.SetFloat(prefix+"y", playerLocation.y);
         PlayerPrefs.SetFloat(prefix+"z", playerLocation.z);
+        PlayerPrefs.SetFloat(prefix+" currenttime", GameObject.Find("Main Camera").GetComponent<MazeLoader>().timeElapsed);
         Time.timeScale = 1f;
         GameIsPaused = false;
         // SceneManager.UnloadScene(SceneManager.GetActiveScene().buildIndex);
