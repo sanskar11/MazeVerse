@@ -153,6 +153,7 @@ public class MazeLoader : MonoBehaviour
 
     IEnumerator DestroyAfterSomeTime(GameObject obs){
         yield return (new WaitForSeconds(initTopViewPeriod));
+        GameObject.Find("Player").GetComponent<camerachange>().toggleCam(false,false);
         Destroy(obs);
     }
 
