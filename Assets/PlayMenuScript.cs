@@ -6,10 +6,11 @@ using TMPro;
 public class PlayMenuScript : MonoBehaviour
 {
     public GameObject SelectedLevelText;
+    public GameObject dropdown;
 
     void Update()
     {
-        UpdateSelectedLevelText();    
+        UpdateSelectedLevelText();
     }
 
     public void UpdateSelectedLevelText()
@@ -19,6 +20,8 @@ public class PlayMenuScript : MonoBehaviour
         for(int i=1; i<=4; i++){
             if("maze "+i.ToString()+" lol" == mazename){
                 levelTextValue = "Level "+i.ToString();
+                dropdown.GetComponent<TMP_Dropdown>().value = i-1;
+                break;
             }
         }
         SelectedLevelText.GetComponent<TextMeshProUGUI>().text = levelTextValue;

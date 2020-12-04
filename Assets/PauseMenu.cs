@@ -37,6 +37,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadMenu(){
+        Vector3 playerLocation = GameObject.Find("Player").transform.position;
+        string prefix = PlayerPrefs.GetString("mazename") + " location";
+        PlayerPrefs.SetFloat(prefix+"x", playerLocation.x);
+        PlayerPrefs.SetFloat(prefix+"y", playerLocation.y);
+        PlayerPrefs.SetFloat(prefix+"z", playerLocation.z);
         Time.timeScale = 1f;
         GameIsPaused = false;
         // SceneManager.UnloadScene(SceneManager.GetActiveScene().buildIndex);

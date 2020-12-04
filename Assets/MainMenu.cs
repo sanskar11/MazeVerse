@@ -16,6 +16,14 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
     
+    public void ResumeFromLast(){
+        string mazename = PlayerPrefs.GetString("mazename");
+        if(PlayerPrefs.HasKey(mazename + " location" + "x")){
+            PlayerPrefs.SetInt("StartFromBeginning", 0);
+        }
+        PlayGame();
+    }
+
     public void QuitGame(){
         Application.Quit();
     }

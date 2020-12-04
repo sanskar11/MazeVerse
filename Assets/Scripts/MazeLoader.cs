@@ -94,6 +94,16 @@ public class MazeLoader : MonoBehaviour
         SpawnMazeObject(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,0,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2,Values.EndPlatform);
         startCompleted = true;
         player = GameObject.Find("Player");
+        if(PlayerPrefs.HasKey("StartFromBeginning") && PlayerPrefs.GetInt("StartFromBeginning") == 0){
+            string prefix = PlayerPrefs.GetString("mazename") + " location";
+            if(PlayerPrefs.HasKey(prefix+"x")){
+                float x = PlayerPrefs.GetFloat(prefix+"x");
+                float y = PlayerPrefs.GetFloat(prefix+"y");
+                float z = PlayerPrefs.GetFloat(prefix+"z");
+                player.transform.position = new Vector3(x,y+1,z);
+            }
+        }
+        PlayerPrefs.SetInt("StartFromBeginning", 1);
     }
 
     void Update()
