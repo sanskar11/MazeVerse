@@ -92,10 +92,7 @@ public class MazeLoader : MonoBehaviour
         topCamViewSize = yOffset + Mathf.Max(rows,cols)*2 + 1;
         startTime = Time.time;
         SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.StartPlatform);
-        GameObject initial_top_view = SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.TopViewPlatform);
-        StartCoroutine("DestroyAfterSomeTime", initial_top_view);
         SpawnMazeObject(xOffset+BOXSIZE*(rows-1)+BOXSIZE/2,0,zOffset+BOXSIZE*(cols-1)+BOXSIZE/2,Values.EndPlatform);
-        startCompleted = true;
         player = GameObject.Find("Player");
         if(PlayerPrefs.HasKey("StartFromBeginning") && PlayerPrefs.GetInt("StartFromBeginning") == 0){
             string prefix = PlayerPrefs.GetString("mazename") + " location";
@@ -107,7 +104,13 @@ public class MazeLoader : MonoBehaviour
                 player.transform.position = new Vector3(x,y+1,z);
             }
         }
-        PlayerPrefs.SetInt("StartFromBeginning", 1);
+        else{
+            PlayerPrefs.SetInt("StartFromBeginning", 1);
+            GameObject initial_top_view = SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.TopViewPlatform);
+            StartCoroutine("DestroyAfterSomeTime", initial_top_view);
+        }
+
+        startCompleted = true;
     }
 
     void Update()
