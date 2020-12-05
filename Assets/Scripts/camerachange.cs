@@ -31,6 +31,13 @@ public class camerachange : MonoBehaviour
         damage=(value & damage_is_on);
  }
 
+  public void tppView(){
+        cam1.enabled = true;
+        cam2.enabled = false;
+        togglePlayerMarker(false);
+        damage=false;
+ }
+
  void Update() {
  
      if (Input.GetKeyDown(KeyCode.C)) {

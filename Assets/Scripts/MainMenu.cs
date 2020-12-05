@@ -24,6 +24,11 @@ public class MainMenu : MonoBehaviour
         PlayGame();
     }
 
+    public void StartFromStart(){
+        PlayerPrefs.SetInt("StartFromBeginning", 1);
+        PlayGame();
+    }
+
     public void QuitGame(){
         Application.Quit();
     }

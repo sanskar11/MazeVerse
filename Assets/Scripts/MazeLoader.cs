@@ -106,6 +106,7 @@ public class MazeLoader : MonoBehaviour
         }
         else{
             PlayerPrefs.SetInt("StartFromBeginning", 1);
+            player.transform.position = new Vector3(0,2,0);
             GameObject initial_top_view = SpawnMazeObject(xOffset+BOXSIZE/2,0,zOffset+BOXSIZE/2,Values.TopViewPlatform);
             StartCoroutine("DestroyAfterSomeTime", initial_top_view);
         }
@@ -156,7 +157,7 @@ public class MazeLoader : MonoBehaviour
 
     IEnumerator DestroyAfterSomeTime(GameObject obs){
         yield return (new WaitForSeconds(initTopViewPeriod));
-        GameObject.Find("Player").GetComponent<camerachange>().toggleCam(false,false);
+        GameObject.Find("Player").GetComponent<camerachange>().tppView();
         Destroy(obs);
     }
 
